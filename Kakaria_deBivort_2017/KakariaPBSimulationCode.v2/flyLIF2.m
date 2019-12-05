@@ -107,6 +107,7 @@ for t=2:N
                 I(t:t+tBuff-1,i)=I(t:t+tBuff-1,i)+PSC;
             else
                 currentTemp=Iin(t-1,i) + sum(connect(:,i).*I(t-1,:)') + TRPCurrent(i);
+                %%currentTemp=Iin(t-1,i) + sum(connect(:,i).*I(t-1,:)') + TRPCurrent;
                 dV=(1/Cmem)*( (V0-V(t-1,i))/Rmem + currentTemp );
                 V(t,i)=V(t-1,i)+dV*dt;
             end

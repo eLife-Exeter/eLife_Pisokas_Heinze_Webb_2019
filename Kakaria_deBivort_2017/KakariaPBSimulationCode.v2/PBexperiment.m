@@ -43,7 +43,7 @@ sweepRate=120;       %Hz (120 in wowInstances
 
 experimentStartTime=0.5/P.dt;   %s
 
-SweepBarBool    =0; %=1 for multidimensional analysis
+SweepBarBool    =1; %=1 for multidimensional analysis
 SweepBarBool2   =0;
 BarsGoUpBool    =0;
 DoubleSweepBool =0;

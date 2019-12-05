@@ -9,7 +9,7 @@ function figureOut=PBMultiPanelPlot(out)
     blanding=interp1([1 128 129 256],[0 1 1; .248 .2559 .2559; .2559 .248 .248; 1 0 0],1:256);
     blanding=flipud(blanding);
 
-    subplot(3,3,1);
+    ax1=subplot(3,3,1);
 
     Con2=(Con-min(Con(:)))/(max(Con(:))-min(Con(:)));
     Con2=(Con2-mode(Con2(:)))*256+128;
@@ -17,7 +17,7 @@ function figureOut=PBMultiPanelPlot(out)
     colormap(blanding)
     freezeColors
 
-    subplot(3,3,4:9);
+    ax2=subplot(3,3,4:9);
 
     imagesc(blurredImage');
     colormap(molaspass);
@@ -27,8 +27,9 @@ function figureOut=PBMultiPanelPlot(out)
         plot([0 P.N], classBreaks(i)*ones(1,2),'w-');
     end
     xlim([0 P.N]);
+    colorbar
     
-    subplot(3,3,1:3);
+    ax3=subplot(3,3,1:3);
     hold on;
     tick=0;
     for i=1:size(out.inputPSCs,2);
@@ -46,3 +47,5 @@ function figureOut=PBMultiPanelPlot(out)
 
     set(gca,'Xtick',[]);
     set(gca,'Ytick',[]);
+    
+    linkaxes([ax1,ax2,ax3], 'x'); % link the x ases so zooming affects both
