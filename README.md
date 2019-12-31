@@ -6,3 +6,6 @@ The code in Exp_Recurrent_PB_EB/ is the code developed for the paper Pisokas, He
 
 
 
+# Usage
+
+Both directories and subdirectories must be added in Matlab path. 
